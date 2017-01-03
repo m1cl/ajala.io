@@ -10,18 +10,28 @@ class PagesController extends Controller
     # receive from the model
     # compile or process data from the model if needed
     # pass the data to the correct view 
-    return view('welcome');
+    return view('pages.welcome');
   }
 
   public function getAbout() {
-    return view('about');
+    $first = 'Michael';
+    $last = 'Ajala';
+    $email = "michael@ajala.io";
+    $full = $first . " " . $last;
+    $data = [];
+    $data['fullname'] = $full;
+    $data['email'] = $email;
+    $data['first'] = $first;
+    $data['last'] = $last;
+
+    return view('pages.about')->withData($data);
   }
 
   public function getMusic() {
-    return view('music');
+    return view('pages.music');
   }
 
   public function getContact() {
-    return view('contact');
+    return view('pages.contact');
   }
 }
