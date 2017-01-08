@@ -9,10 +9,10 @@
     <div class="container">
 
       @yield('content')
-      @include('partials._footer')
 
     </div><!-- end .container -->
 
+    @include('partials._footer')
     @include('partials._script')
   </body>
 </html>

@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="jumbotron">
-        <h1>HELLO</h1>
+        <h1>Welcome to my Blog</h1>
         <p class="lead">Thank you so much for visiting. This is my blog</p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button">Popular Post</a></p>
       </div>
