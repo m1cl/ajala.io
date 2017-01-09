@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Post;
 
 class PagesController extends Controller
 {
@@ -10,7 +11,8 @@ class PagesController extends Controller
     # receive from the model
     # compile or process data from the model if needed
     # pass the data to the correct view 
-    return view('pages.welcome');
+    $posts = Post::all();
+    return view('pages.welcome')->withPosts($posts);
   }
 
   public function getAbout() {

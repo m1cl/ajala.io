@@ -9,7 +9,7 @@
     </div>
 
     <div class="col-md-2">
-      <a class="btn btn-lg btn-block btn-primary btn-h1-spacing" href="{{ route('posts.create')}}">Create new Post</a>
+      <a class="btn btn-block btn-primary btn-h1-spacing" href="{{ route('posts.create')}}">Create new Post</a>
     </div>
     <hr>
   </div> <!-- end .row -->
@@ -39,6 +39,9 @@
         @endforeach
       </tbody>
       </table>
+      <div class="text-center">
+        {!! $posts->links() !!}
+      </div>
     </div>
   </div>
 @endsection
