@@ -43,13 +43,15 @@ class PostController extends Controller
       // 1. validate the data
       $this->validate($request, array(
         'title' => 'required|max:255',
-        'body' => 'required'
+        'body' => 'required',
+        'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug'
       ));
 
       // 2. store in the database
       $post = new Post;
      
       $post->title = $request->title;
+      $post->slug = $request->slug;
       $post->body = $request->body;
       
       $post->save();
@@ -79,7 +81,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        // find the post in the database and save it as variable
+        // find the post in the database (only!) by id and save it as variable
         $post = Post::find($id);
         // return a view for
         return view('posts.edit')->withPost($post);
@@ -95,12 +97,22 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
       // Validate the data 
+      $post = Post::find($id);
+      if ( $request->input('slug') == $post->slug ) {
       $this->validate($request, array(
         'title' => 'required|max:255',
         'body' => 'required'
       ));
+      }
+
+      else{
+        $this->validate($request, array(
+          'title' => 'required|max:255',
+          'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
+          'body' => 'required'
+        ));
+      }
       // save the data to the database
-      $post = Post::find($id);
 
       $post->title = $request->input('title');
       $post->body = $request->input('body');

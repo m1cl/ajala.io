@@ -3,6 +3,3 @@ var openTag = body.search('<?php');
 var closeTag = body.search('?>');
 body.slice(openTag, closeTag);
 
-var http = new XMLHttpRequest();
-
-

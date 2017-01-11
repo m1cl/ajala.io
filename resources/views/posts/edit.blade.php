@@ -9,17 +9,21 @@
 
             <!-- Form::text('the-column-name-in-the-databse', value , array(html attributes)) -->
           {{Form::label( 'title', 'Title:')}}
-          {{ Form::text( 'title', null, [ "class" => 'form-control input-lg' ]) }}
+          {{ Form::text( 'title', null, [ "class" => 'form-control input-lg', 'required' => "" ]) }}
+
+          {{ Form::label('slug', "Slug:", ['class' => 'form-spacing-top']) }}
+          {{ Form::text('slug', null, array('class' => 'form-control', 'required' => '','minlength'=> '5','maxlength' => '255')) }}
+
           {{Form::label( 'body', 'Post Body:', ['class' => 'form-spacing-top'])}}
-          {{ Form::textarea( 'body', null, ['class' => 'form-control' ]) }}
+          {{ Form::textarea( 'body', null, ['class' => 'form-control', 'required' => "" ]) }}
         </div>
         <div class="col-md-4">   
           <div class="well">
             <dl class="dl-horizontal">
-              <dt>Created at:</dt>
-              <dd>{{ date('D j M Y, H:i', strtotime($post->created_at)) }}</dd>
-              <dt>Last Updated:</dt>
-              <dd>{{ date('D j M Y, H:i', strtotime($post->updated_at)) }}</dd>
+              <label>Created at:</label>
+              <p>{{ date('D j M Y, H:i', strtotime($post->created_at)) }}</p>
+              <label>Last Updated:</label>
+              <p>{{ date('D j M Y, H:i', strtotime($post->updated_at)) }}</p>
             </dl>
             <hr />
             <div class="row">
