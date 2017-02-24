@@ -22,6 +22,11 @@
           <li class="{{Request::is('contact') ? "active" : ""}}"><a href="{{'/contact'}}">Contact</a></li>
         </ul>
    <ul class="nav navbar-nav navbar-right">
+        @if(!Auth::check())
+          <li class="{{Request::is('register') ? "active" : ""}}"><a href="{{'/register'}}">Register</a></li>
+          <li class="{{Request::is('login') ? "active" : ""}}"><a href="{{'/login'}}">Login</a></li>
+        @endif
+        @if(Auth::check())
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -29,9 +34,10 @@
               <li><a href="#">Profile</a></li>
               <li><a href="#">Settings</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
+              <li><a href="{{url('logout')}}">Logout</a></li>
             </ul>
           </li>
+        @endif
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

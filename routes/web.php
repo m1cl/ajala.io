@@ -27,8 +27,8 @@ Route::resource('posts', 'PostController');
 |
 |
 */
-Route::get('/', 'HomeController@index');
-Route::get('/auth/login','Auth\LoginController@getLogin');
+/* Route::get('/', 'HomeController@index'); */
+Route::get('logout','Auth\LoginController@logout');
 /*
 |--------------------------------------------------------------------------
 | Registration Routes 
@@ -40,8 +40,8 @@ Route::get('/auth/login','Auth\LoginController@getLogin');
 |
 */
 
-Route::get('/auth/register','Auth\RegisterController@register');
-Route::post('/auth/register','Auth\RegisterController@register');
+/* Route::get('/auth/register','Auth\RegisterController@register'); */
+/* Route::post('/auth/register','Auth\RegisterController@register'); */
 
 /*
 |--------------------------------------------------------------------------
@@ -53,5 +53,4 @@ Route::post('/auth/register','Auth\RegisterController@register');
 |
 |
 */
-
 Auth::routes();

@@ -38,6 +38,7 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
+
     public function getIndex()
     {
         return view('register');
