@@ -17,6 +17,31 @@ Route::get('about', 'PagesController@getAbout');
 Route::get('music','PagesController@getMusic');
 Route::get('contact','PagesController@getContact');
 Route::resource('posts', 'PostController');
+/*
+|--------------------------------------------------------------------------
+| Authentication Routes 
+|--------------------------------------------------------------------------
+| this routes handle the authentication of the users
+| 
+|
+|
+|
+*/
+Route::get('/', 'HomeController@index');
+Route::get('/auth/login','Auth\LoginController@getLogin');
+/*
+|--------------------------------------------------------------------------
+| Registration Routes 
+|--------------------------------------------------------------------------
+| this routes handle the registration of the user 
+| 
+|
+|
+|
+*/
+
+Route::get('/auth/register','Auth\RegisterController@register');
+Route::post('/auth/register','Auth\RegisterController@register');
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +53,5 @@ Route::resource('posts', 'PostController');
 |
 |
 */
+
+Auth::routes();
